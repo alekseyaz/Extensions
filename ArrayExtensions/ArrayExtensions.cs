@@ -76,5 +76,32 @@ namespace Zaac.Extensions
                         array[j] = t;
                     }
         }
+
+        private static void QuickSort(int[] arr, int depth, int range)
+        {
+            int i = depth;
+            int j = range;
+            int x = arr[(depth + range) / 2];
+            while (i <= j)
+            {
+                while (arr[i] < x) i++;
+                while (arr[j] > x) j--;
+                if (i <= j)
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    i++;
+                    j--;
+                }
+            }
+            if (depth < j) QuickSort(arr, depth, j);
+            if (i < range) QuickSort(arr, i, range);
+        }
+
+        public static void QuickSort(this int[] arr)
+        {
+            QuickSort(arr, 0, arr.Length - 1);
+        }
     }
 }
