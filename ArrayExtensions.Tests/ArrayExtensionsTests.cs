@@ -80,5 +80,16 @@ namespace Zaac.ArrayExtensions.Tests
 
             CollectionAssert.AreEqual(actual, expected);
         }
+
+        [TestMethod]
+        public void MergeSortTest()
+        {
+            var actual = new int[] { 800, 11, 50, 771, 649, 770, 240, 9 };
+            var expected = new int[] { 9, 11, 50, 240, 649, 770, 771, 800 };
+
+            actual.MergeSort();
+
+            CollectionAssert.AreEqual(actual, expected);
+        }
     }
 }
