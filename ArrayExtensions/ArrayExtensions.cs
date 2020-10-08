@@ -1,37 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Zaac.Extensions
 {
     public static class ArrayExtensions
     {
-        public static void Fill<T>(this T[] destinationArray, params T[] value)
+        public static void Fill<T>(this T[] destinationArray, T value)
         {
-            if (destinationArray == null)
-            {
+            if (destinationArray == null) {
                 throw new ArgumentNullException(nameof(destinationArray));
             }
 
-            if (value.Length > destinationArray.Length)
-            {
-                throw new ArgumentException("Длина массива значений не должна быть больше длины массива назначения");
-            }
-
-            Array.Copy(value, destinationArray, value.Length);
-
-            var copyLength = value.Length;
-            var destinationArrayHalfLength = destinationArray.Length / 2;
-
-            for (; copyLength < destinationArrayHalfLength; copyLength *= 2)
-            {
-                Array.Copy(destinationArray, 0, destinationArray, copyLength, copyLength);
-            }
-
-            Array.Copy(destinationArray, 0, destinationArray, copyLength, destinationArray.Length - copyLength);
+            destinationArray[0] = value;
+            FillInternal(destinationArray, 1);
         }
 
+        public static void Fill<T>(this T[] destinationArray, T[] values)
+        {
+            if (destinationArray == null) {
+                throw new ArgumentNullException(nameof(destinationArray));
+            }
+
+            var copyLength = values.Length;
+            var destinationArrayLength = destinationArray.Length;
+
+            if (copyLength == 0) {
+                throw new ArgumentException("Параметр должен содержать хотя бы одно значение.", nameof(values));
+            }
+
+            if (copyLength > destinationArrayLength) {
+                // значение для копирования длиннее, чем место назначения,
+                // поэтому заполните место назначения первой частью значения
+                Array.Copy(values, destinationArray, destinationArrayLength);
+                return;
+            }
+
+            Array.Copy(values, destinationArray, copyLength);
+
+            FillInternal(destinationArray, copyLength);
+        }
+
+        private static void FillInternal<T>(this T[] destinationArray, int copyLength)
+        {
+            var destinationArrayLength = destinationArray.Length;
+            var destinationArrayHalfLength = destinationArrayLength / 2;
+
+            // циклическое копирование от начала массива до текущей позиции,
+            // удваивающее длину копии с каждым проходом
+            for (; copyLength < destinationArrayHalfLength; copyLength *= 2) {
+                Array.Copy(
+                    sourceArray: destinationArray,
+                    sourceIndex: 0,
+                    destinationArray: destinationArray,
+                    destinationIndex: copyLength,
+                    length: copyLength);
+            }
+
+            // мы прошли половину пути, это означает, что остается только одна копия,
+            // точно заполняющая остаток массива
+            Array.Copy(
+                sourceArray: destinationArray,
+                sourceIndex: 0,
+                destinationArray: destinationArray,
+                destinationIndex: copyLength,
+                length: destinationArrayLength - copyLength);
+        }
     }
 }

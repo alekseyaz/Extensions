@@ -1,7 +1,6 @@
-﻿using System;
-using Zaac.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using Zaac.Extensions;
 
 namespace Zaac.ArrayExtensions.Tests
 {
@@ -48,7 +47,7 @@ namespace Zaac.ArrayExtensions.Tests
         {
             for (var loopCount = 0; loopCount < 5; loopCount++)
             {
-                var arrayLength = 2000000000 - 4 + loopCount;
+                var arrayLength = 200000000 - 4 + loopCount;
                 var myArray = new byte[arrayLength];
                 var filler = new byte[] { 0, 1, 2, 3, 4 };
 
