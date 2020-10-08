@@ -43,5 +43,20 @@ namespace Zaac.ArrayExtensions.Tests
             }
         }
 
+        [TestMethod]
+        public void ArrayFillTestGiant()
+        {
+            for (var loopCount = 0; loopCount < 5; loopCount++)
+            {
+                var arrayLength = 2000000000 - 4 + loopCount;
+                var myArray = new byte[arrayLength];
+                var filler = new byte[] { 0, 1, 2, 3, 4 };
+
+                myArray.Fill(filler);
+
+                var lastValue = myArray[arrayLength - 1];
+                Assert.AreEqual(loopCount, lastValue);
+            }
+        }
     }
 }
