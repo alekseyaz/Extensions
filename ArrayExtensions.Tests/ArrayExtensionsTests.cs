@@ -18,6 +18,15 @@ namespace Zaac.ArrayExtensions.Tests
 
             Assert.AreEqual(5, myArray.Last());
         }
+        [TestMethod]
+        public void ArrayFillExactDoubleTest()
+        {
+            var myArray = new int[16384];
+
+            myArray.Fill(7);
+
+            Assert.AreEqual(7, myArray.Last());
+        }
 
     }
 }
