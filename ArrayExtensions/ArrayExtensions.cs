@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zaac.ArrayExtensions
+namespace Zaac.Extensions
 {
     public static class ArrayExtensions
     {
