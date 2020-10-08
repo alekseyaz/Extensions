@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
 using Zaac.Extensions;
 
@@ -56,6 +57,17 @@ namespace Zaac.ArrayExtensions.Tests
                 var lastValue = myArray[arrayLength - 1];
                 Assert.AreEqual(loopCount, lastValue);
             }
+        }
+
+        [TestMethod]
+        public void BubbleSortTest()
+        {
+            var actual = new int[] { 800, 11, 50, 771, 649, 770, 240, 9 };
+            var expected = new int[] { 9, 11, 50, 240, 649, 770, 771, 800 };
+
+            actual.BubbleSort();
+
+            CollectionAssert.AreEqual(actual, expected);
         }
     }
 }
