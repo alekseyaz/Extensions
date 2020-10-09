@@ -1,9 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Linq;
-using Zaac.Extensions;
 
-namespace Zaac.ArrayExtensions.Tests
+namespace Zaac.Extensions.Tests
 {
     [TestClass]
     public class ArrayExtensionsTests

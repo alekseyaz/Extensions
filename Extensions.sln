@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayExtensions", "ArrayExtensions\ArrayExtensions.csproj", "{6E23394D-8843-49A8-8C64-18069650EE97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{6E23394D-8843-49A8-8C64-18069650EE97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayExtensions.Tests", "ArrayExtensions.Tests\ArrayExtensions.Tests.csproj", "{B46403FB-B079-429A-B9A6-92CA6EDC6286}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Tests", "Extensions.Tests\Extensions.Tests.csproj", "{B46403FB-B079-429A-B9A6-92CA6EDC6286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
