@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System.Linq;
 
 namespace Zaac.Extensions.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class ArrayExtensionsTests
     {
-        [TestMethod]
+        [Test]
         public void ArrayFillTest()
         {
             var myArray = new int[12000];
@@ -17,7 +17,7 @@ namespace Zaac.Extensions.Tests
             Assert.AreEqual(5, myArray.Last());
         }
 
-        [TestMethod]
+        [Test]
         public void ArrayFillExactDoubleTest()
         {
             var myArray = new int[16384];
@@ -27,7 +27,7 @@ namespace Zaac.Extensions.Tests
             Assert.AreEqual(7, myArray.Last());
         }
 
-        [TestMethod]
+        [Test]
         public void ArrayFillTestUnevens()
         {
             for (var i = 0; i < 5; i++)
@@ -41,7 +41,7 @@ namespace Zaac.Extensions.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void ArrayFillTestGiant()
         {
             for (var loopCount = 0; loopCount < 5; loopCount++)
@@ -57,7 +57,7 @@ namespace Zaac.Extensions.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void BubbleSortTest()
         {
             var actual = new int[] { 800, 11, 50, 771, 649, 770, 240, 9 };
@@ -68,7 +68,7 @@ namespace Zaac.Extensions.Tests
             CollectionAssert.AreEqual(actual, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void QuickSortTest()
         {
             var actual = new int[] { 800, 11, 50, 771, 649, 770, 240, 9 };
@@ -79,7 +79,7 @@ namespace Zaac.Extensions.Tests
             CollectionAssert.AreEqual(actual, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MergeSortTest()
         {
             var actual = new int[] { 800, 11, 50, 771, 649, 770, 240, 9 };
