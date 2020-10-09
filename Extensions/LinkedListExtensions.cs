@@ -18,7 +18,7 @@ namespace Zaac.Extensions
                 el = el.Previous;
             }
         }
-        public static LinkedList<T> GetReverseLinkedList<T>(this LinkedList<T> list)
+        public static void Reverse<T>(this LinkedList<T> list)
         {
             var head = list.First;
             while (head.Next != null)
@@ -27,8 +27,6 @@ namespace Zaac.Extensions
                 list.Remove(next);
                 list.AddFirst(next.Value);
             }
-
-            return list;
         }
 
     }
